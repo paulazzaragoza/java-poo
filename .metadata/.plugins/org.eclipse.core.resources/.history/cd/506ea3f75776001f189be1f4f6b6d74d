@@ -1,0 +1,13 @@
+package bombilla;
+
+public class Programa {
+
+	public static void main(String[] args) {
+		Bombilla b1 = new Bombilla();
+		Bombilla b2 = new Bombilla();
+		
+		System.out.print("Intensidad de b1: " + b1.getIntesidad());
+
+	}
+
+}
