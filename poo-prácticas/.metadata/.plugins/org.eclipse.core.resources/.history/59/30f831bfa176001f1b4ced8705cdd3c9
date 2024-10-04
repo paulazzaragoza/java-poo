@@ -1,9 +1,0 @@
-package pruebas;
-
-public class PruebaPunto {
-
-	public static void main(String[] args) {
-		
-	}
-
-}

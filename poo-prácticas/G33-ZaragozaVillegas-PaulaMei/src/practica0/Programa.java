@@ -1,4 +1,5 @@
 package practica0;
+import geometria.Punto;
 
 public class Programa {
 	

@@ -1,0 +1,84 @@
+package geometria;
+
+public class Rectangulo {
+	//atributos
+	private int ladoX; 
+	private int ladoY; 
+	private Point verticeII; 
+	private Point verticeSI; 
+	private Point verticeSD; 
+	private Point verticeID; 
+	
+	
+	
+	//atributo calculado
+	public int getPerimetro() {
+		return 2*ladoY + 2*ladoX;
+	}
+	
+	
+	
+	//getters
+	public int getLadoX() {
+		return ladoX;
+	}
+	
+	public int getLadoY() {
+		return ladoY;
+	}
+	
+	public Point getVerticeII() {
+		return verticeII; 
+	}
+	
+	public Point getVerticeSI() {
+		return verticeSI; 
+	}
+	
+	public Point getVerticeSD() {
+		return verticeSD; 
+	}
+	
+	public Point getVerticeID() {
+		return verticeID; 
+	}
+	
+	
+	
+	//constructores
+	public Rectangulo(Point vII, int lX, int lY) {
+		verticeII = vII; 
+		ladoX = lX; 
+		ladoY = lY; 
+	}
+	
+	public Rectangulo(Point vII, Point vSD) {
+		verticeII = vII; 
+		verticeSD = vSD; 
+	}
+	
+	
+	
+	//metodos
+	public void desplazar(int incX, int incY) {
+		verticeII = verticeII.desplazar(incX, incY);
+		verticeSI = verticeSI.desplazar(incX, incY);
+		verticeSD = verticeSD.desplazar(incX, incY);
+		verticeID = verticeID.desplazar(incX, incY);
+	}
+	
+	public void escalar(int porcentaje) {
+		int desplazamientoX = ladoX - ladoX*porcentaje; 
+		int desplazamientoY = ladoY - ladoY*porcentaje; 
+		
+		verticeSI.desplazar(0, desplazamientoY);
+		verticeID.desplazar(desplazamientoX, 0);
+		verticeSD.desplazar(desplazamientoX, desplazamientoY);
+		
+		
+		ladoX = ladoX * porcentaje / 100; 
+		ladoY = ladoY * porcentaje / 100; 
+		
+	}
+	
+}
