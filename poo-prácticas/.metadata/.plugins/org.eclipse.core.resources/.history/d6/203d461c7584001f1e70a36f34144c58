@@ -62,9 +62,6 @@ public class Rectangulo {
 	public Rectangulo(Point vII, Point vSD) {
 		verticeII = vII; 
 		verticeSD = vSD; 
-		verticeSI = new Point(verticeII.getX(), verticeSD.getY());
-		verticeID = new Point(verticeSD.getX(), verticeII.getY());
-		
 	}
 	
 	
@@ -78,16 +75,16 @@ public class Rectangulo {
 	}
 	
 	public void escalar(int porcentaje) {
-		int desplazamientoX = (int)(ladoX*porcentaje/100 - ladoX); 
-		int desplazamientoY = (int)(ladoY*porcentaje/100 - ladoY); 
+		int desplazamientoX = ladoX*porcentaje/100 - ladoX; 
+		int desplazamientoY = ladoY*porcentaje/100 - ladoY; 
 		
 		verticeSI = verticeSI.desplazar(0, desplazamientoY);
 		verticeSD =verticeSD.desplazar(desplazamientoX, desplazamientoY);
 		verticeID =verticeID.desplazar(desplazamientoX, 0);
 		
 		
-		ladoX = (int)(ladoX * porcentaje / 100); 
-		ladoY = (int)(ladoY * porcentaje / 100); 
+		ladoX = ladoX * porcentaje / 100; 
+		ladoY = ladoY * porcentaje / 100; 
 		
 	}
 	

@@ -4,17 +4,17 @@ package geometria;
 
 public class Circulo {
 	//constantes 
-	public static final PuntoInmutable ORIGEN_COORDENADAS = new PuntoInmutable();
+	public static final Punto ORIGEN_COORDENADAS = new Punto();
 	public static final int RADIO_POR_DEFECTO = 5;
 	
 	//atributos
-	private PuntoInmutable centro; 
+	private Punto centro; 
 	private int radio; 
 	
 	//getters
-	public PuntoInmutable getCentro() {
+	public Punto getCentro() {
 		//return centro -> alisasing
-		return new PuntoInmutable(centro);
+		return new Punto(centro);
 	}
 	
 	public int getRadio() {
@@ -27,9 +27,9 @@ public class Circulo {
 	}
 	
 	//constructores
-	public Circulo(PuntoInmutable centro, int radio) {
+	public Circulo(Punto centro, int radio) {
 		//this.centro = centro -> aliasing
-		this.centro = new PuntoInmutable(centro); 
+		this.centro = new Punto(centro); 
 		this.radio = radio; 
 	}
 	

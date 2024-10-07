@@ -1,13 +1,13 @@
 package pruebas;
 
 import geometria.Circulo;
-import geometria.PuntoInmutable;
+import geometria.Punto;
 
 public class PruebaCirculo {
 	
 	public static void main(String[] args) {
 		
-		PuntoInmutable punto1 = new PuntoInmutable(2,3);
+		Punto punto1 = new Punto(2,3);
 		Circulo circulo1 = new Circulo(punto1, 3);
 		System.out.printf("circulo1.centro = (%d, %d)\n", 
 				circulo1.getCentro().getX(), circulo1.getCentro().getY());
@@ -44,7 +44,7 @@ public class PruebaCirculo {
 		System.out.printf("circulo1.radio = %d\n", circulo1.getRadio());
 		
 		
-		PuntoInmutable punto2 = circulo3.getCentro();
+		Punto punto2 = circulo3.getCentro();
 		punto2.desplazar(1, 0);
 		System.out.printf("punto2 = (%d, %d) \n", punto2.getX(), punto2.getY());
 		System.out.printf("circulo3.centro = (%d, %d)\n", 
