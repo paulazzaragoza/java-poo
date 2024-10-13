@@ -14,14 +14,14 @@
 	<section name="JavaProjectWizard.dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="0"/>
 		<item key="DIALOG_Y_ORIGIN" value="0"/>
-		<item key="DIALOG_WIDTH" value="1440"/>
+		<item key="DIALOG_WIDTH" value="790"/>
 		<item key="DIALOG_HEIGHT" value="802"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>
 	<section name="NewPackageCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="427"/>
+		<item key="DIALOG_X_ORIGIN" value="134"/>
 		<item key="DIALOG_Y_ORIGIN" value="121"/>
 		<item key="DIALOG_WIDTH" value="586"/>
 		<item key="DIALOG_HEIGHT" value="500"/>
@@ -61,7 +61,7 @@
 		<item key="renameSubpackages" value="false"/>
 	</section>
 	<section name="NewEnumCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="427"/>
+		<item key="DIALOG_X_ORIGIN" value="134"/>
 		<item key="DIALOG_Y_ORIGIN" value="71"/>
 		<item key="DIALOG_WIDTH" value="586"/>
 		<item key="DIALOG_HEIGHT" value="495"/>
@@ -76,5 +76,24 @@
 	</section>
 	<section name="NewRecordWizardPage">
 		<item key="create_unimplemented" value="false"/>
+	</section>
+	<section name="JavaEditorCodeMiningConfigurationBlock">
+		<item key="expanded0" value="true"/>
+	</section>
+	<section name="ProblemSeveritiesConfigurationBlock">
+		<item key="expanded0" value="false"/>
+		<item key="expanded1" value="false"/>
+		<item key="expanded2" value="true"/>
+		<item key="expanded3" value="false"/>
+		<item key="expanded4" value="false"/>
+		<item key="expanded5" value="false"/>
+		<item key="expanded6" value="false"/>
+		<item key="expanded7" value="false"/>
+		<item key="expanded8" value="false"/>
+	</section>
+	<section name="JavaBuildConfigurationBlock">
+		<item key="expanded0" value="true"/>
+		<item key="expanded1" value="false"/>
+		<item key="expanded2" value="false"/>
 	</section>
 </section>

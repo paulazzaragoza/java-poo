@@ -17,6 +17,10 @@ public class PruebaRectangulo {
 		
 		azul.escalar(50);
 		System.out.println("Escalando rectángulo...");
+		System.out.printf("ladoX: %d\n", azul.getLadoX());
+		System.out.printf("VérticeII rectángulo = {%d,%d}\n", azul.getVerticeII().getX(), azul.getVerticeII().getY());
+		System.out.printf("VérticeID rectángulo = {%d,%d}\n", azul.getVerticeID().getX(), azul.getVerticeID().getY());
+		System.out.printf("VérticeSD rectángulo = {%d,%d}\n", azul.getVerticeSD().getX(), azul.getVerticeSD().getY());
 		System.out.printf("VérticeSI rectángulo = {%d,%d}\n", azul.getVerticeSI().getX(), azul.getVerticeSI().getY());
 
 	}

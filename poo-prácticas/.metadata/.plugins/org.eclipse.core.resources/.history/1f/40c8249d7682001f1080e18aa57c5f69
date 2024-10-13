@@ -1,7 +1,0 @@
-package geometria;
-
-public class Rectangulo {
-	private int ladoX; 
-	private int ladoY; 
-	private Point vert
-}

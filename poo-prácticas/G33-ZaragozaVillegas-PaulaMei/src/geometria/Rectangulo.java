@@ -4,10 +4,8 @@ public class Rectangulo {
 	//atributos
 	private int ladoX; 
 	private int ladoY; 
-	private Point verticeII; 
-	private Point verticeSI; 
-	private Point verticeSD; 
-	private Point verticeID; 
+	private Point verticeII;
+	private Point verticeSD;
 	
 	
 	
@@ -32,7 +30,7 @@ public class Rectangulo {
 	}
 	
 	public Point getVerticeSI() {
-		return verticeSI; 
+		return new Point(verticeII.getX(), verticeSD.getY()); 
 	}
 	
 	public Point getVerticeSD() {
@@ -40,7 +38,7 @@ public class Rectangulo {
 	}
 	
 	public Point getVerticeID() {
-		return verticeID; 
+		return new Point(verticeSD.getX(), verticeII.getY()); 
 	}
 	
 	
@@ -48,23 +46,13 @@ public class Rectangulo {
 	//constructores
 	public Rectangulo(Point vII, int lX, int lY) {
 		verticeII = vII; 
-		
-		int xVerticeII = verticeII.getX();
-		int yVerticeII = verticeII.getY();
 		ladoX = lX; 
 		ladoY = lY;
-		
-		verticeSI = new Point(xVerticeII, yVerticeII+ladoY);
-		verticeSD = new Point(xVerticeII+ladoX, yVerticeII+ladoY);
-		verticeID = new Point(xVerticeII+ladoX, yVerticeII);
+		verticeSD = new Point(verticeII.getX()+ladoX,  verticeII.getY()+ladoY);
 	}
 	
-	public Rectangulo(Point vII, Point vSD) {
-		verticeII = vII; 
-		verticeSD = vSD; 
-		verticeSI = new Point(verticeII.getX(), verticeSD.getY());
-		verticeID = new Point(verticeSD.getX(), verticeII.getY());
-		
+	public Rectangulo(Point vII, Point vSD) { //poner un constructor con this
+		this(vII, vII.getX()-vSD.getX(),vSD.getY()-vII.getY());
 	}
 	
 	
@@ -72,23 +60,14 @@ public class Rectangulo {
 	//metodos
 	public void desplazar(int incX, int incY) {
 		verticeII = verticeII.desplazar(incX, incY);
-		verticeSI = verticeSI.desplazar(incX, incY);
 		verticeSD = verticeSD.desplazar(incX, incY);
-		verticeID = verticeID.desplazar(incX, incY);
 	}
 	
-	public void escalar(int porcentaje) {
-		int desplazamientoX = (int)(ladoX*porcentaje/100 - ladoX); 
-		int desplazamientoY = (int)(ladoY*porcentaje/100 - ladoY); 
-		
-		verticeSI = verticeSI.desplazar(0, desplazamientoY);
-		verticeSD =verticeSD.desplazar(desplazamientoX, desplazamientoY);
-		verticeID =verticeID.desplazar(desplazamientoX, 0);
-		
-		
+	public void escalar(double porcentaje) { 
 		ladoX = (int)(ladoX * porcentaje / 100); 
 		ladoY = (int)(ladoY * porcentaje / 100); 
 		
+		verticeSD = new Point(verticeII.getX() + ladoX, verticeII.getY() + ladoY);
 	}
 	
 }
