@@ -1,9 +1,10 @@
 package expendedora;
+import java.util.Arrays;
 
-public class Monedero {
+public class MonederoInmutable {
 	
 	//propiedades
-	private int [] monedas; 
+	private final int[] monedas; 
 	
 	
 	//propiedades calculada
@@ -43,49 +44,47 @@ public class Monedero {
 	public int getDosEuros() {
 		return monedas[Moneda.DOS_EUROS.ordinal()]; 
 	}
-	public int [] getMonedero() {
-		int [] res = new int [Moneda.values().length]; 
-		int index = 0; 
-		
-		for (int moneda : monedas) {
-			res[index] = moneda; 
-			index++;
-		}
-		return res; 
-	}
 	
-	
-	//monedero vacío
-	public Monedero() {
-		monedas = new int [Moneda.values().length];
-	}
 	
 	//constructores
-	public Monedero(Moneda moneda, int cantidad_moneda) {
-		this();
+	public MonederoInmutable(Moneda moneda, int cantidad_moneda) {
+		monedas = new int [Moneda.values().length];
 		monedas[moneda.ordinal()] = cantidad_moneda; 
 	}
 	
 	//cantidad de la moneda = 1
-	public Monedero(Moneda moneda) {
+	public MonederoInmutable(Moneda moneda) {
 		this(moneda, 1);
+	}
+	
+	//monedero vacío
+	public MonederoInmutable() {
+		monedas = new int [Moneda.values().length];
+	}
+	
+	//monedero dado un array
+	private MonederoInmutable(int [] monedas) {
+		this.monedas = monedas; 
 	}
 	
 	
 	//metodos 
-	public void insertar(Moneda moneda, int cantidad_moneda) {
-		monedas[moneda.ordinal()] = cantidad_moneda;
+	public MonederoInmutable insertar(Moneda moneda, int cantidad_moneda) {
+		int [] copia_monedas = Arrays.copyOf(monedas, Moneda.values().length);
+		copia_monedas[moneda.ordinal()] = cantidad_moneda;
+		
+		return new MonederoInmutable(copia_monedas); 
 	}
 	
-	public void insertar(Moneda moneda) {
-		this.insertar(moneda, 1);
+	public MonederoInmutable insertar(Moneda moneda) {
+		return this.insertar(moneda, 1);
 	}
 	
-	public void vaciar() {
-		monedas = new int [Moneda.values().length];
+	public MonederoInmutable vaciar() {
+		return new MonederoInmutable();
 	}
 	
-	public void combinar(Monedero otro) {
+	public MonederoInmutable combinar(MonederoInmutable otro) {
 		int index = 0; 
 		
 		for (int moneda : monedas){
@@ -93,16 +92,7 @@ public class Monedero {
 			index++;
 		}
 		
-		otro.vaciar();
-	}
-	
-	public Monedero copiar() {
-		Monedero copia = new Monedero();
-		
-		for (int i = 0; i<monedas.length; i++){
-			copia.monedas[i] = this.monedas[i];
-		}
-		return copia;
+		return otro.vaciar();
 	}
 
 }

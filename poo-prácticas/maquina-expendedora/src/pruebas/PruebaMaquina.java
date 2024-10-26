@@ -19,7 +19,8 @@ public class PruebaMaquina {
 		System.out.println("dinero_transaccion: " + agua.getDineroTransaccion());
 		
 		System.out.println("DEVOLVIENDO...");
-		agua.devolverDinero();
+		double dinero_devuelto = agua.devolverDinero();
+		System.out.println("dinero_devuelto: " + dinero_devuelto);
 		System.out.println("dinero_transaccion: " + agua.getDineroTransaccion());
 		
 		
@@ -44,7 +45,7 @@ public class PruebaMaquina {
 		System.out.println("Precio: " + agua.getPrecio());
 		System.out.println("Stock: " + agua.getStock());
 		System.out.println("Dinero acumulado: " + agua.getDineroAcumulado());
-		System.out.println("Dinero trasanccioón: " + agua.getDineroTransaccion());
+		System.out.println("Dinero trasacción: " + agua.getDineroTransaccion());
 		System.out.println("Está vacía: " + agua.isVacia());
 	}
 

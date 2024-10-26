@@ -1,3 +1,4 @@
+//TODO: cambiar los monederos inmutables a monederos normales
 package expendedora;
 
 public class Maquina {
@@ -6,8 +7,8 @@ public class Maquina {
 	private final String producto; 
 	private final double precio; 
 	private int stock; 
-	private Monedero dinero_acumulado; 
-	private Monedero dinero_transaccion; 
+	private Monedero dineroAcumulado; 
+	private Monedero dineroTransaccion; 
 	
 	//propiedad calculada
 	public boolean isVacia() {
@@ -26,13 +27,13 @@ public class Maquina {
 	public int getStock() {
 		return stock;
 	}
-	
-	public double getDineroAcumulado() {
-		return dinero_acumulado.getValorTotalMonedero();
+
+	public Monedero getDineroAcumulado() {
+		return dineroAcumulado.copiar();
 	}
-	
-	public double getDineroTransaccion() {
-		return dinero_transaccion.getValorTotalMonedero();
+
+	public Monedero getDineroTransaccion() {
+		return dineroTransaccion.copiar(); 
 	}
 	
 	//constructor
@@ -40,26 +41,26 @@ public class Maquina {
 		producto = init_producto; 
 		precio = init_precio; 
 		stock = init_stock; 
-		dinero_acumulado = new Monedero(); 
-		dinero_transaccion = new Monedero(); 
+		dineroAcumulado = new Monedero(); 
+		dineroTransaccion = new Monedero(); 
 	}
 	
 	//metodos 
 	public void insertarMoneda(Moneda moneda) {
-		dinero_transaccion.insertar(moneda);
+		dineroTransaccion.insertar(moneda);
 	}
 	
 	public double devolverDinero() {
-		double dinero = dinero_transaccion.getValorTotalMonedero();
-		dinero_transaccion.vaciar();
+		double dinero = dineroTransaccion.getValorTotalMonedero();
+		dineroTransaccion.vaciar();
 		
 		return dinero; 
 	}
 	
 	public boolean comprar() {
-		if (!isVacia() && getDineroTransaccion() >= precio) {
+		if (!isVacia() && dineroTransaccion.getValorTotalMonedero() >= precio) {
 			stock--; 
-			dinero_acumulado.combinar(dinero_transaccion);
+			dineroAcumulado.combinar(dineroTransaccion);
 			
 			return true; 
 		}
